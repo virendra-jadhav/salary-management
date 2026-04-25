@@ -11,8 +11,8 @@ export default function Home() {
       <h1 className="text-3xl font-bold">Salary Management</h1>
 
         <InsightsDashboard />
-      <EmployeeForm onSuccess={() => setRefresh(!refresh)} />
-      <EmployeeTable refresh={refresh} />
+        <EmployeeForm onSuccess={() => setRefresh(!refresh)} />
+        <EmployeeTable refresh={refresh} />
       
     </div>
   );
