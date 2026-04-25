@@ -13,4 +13,9 @@ class SalaryInsightsService
     Employee.where(country: country, job_title: job_title)
             .average(:salary)&.to_f || 0.0
   end
+  def self.by_department(country)
+    Employee.where(country: country)
+            .group(:department)
+            .average(:salary)
+  end
 end

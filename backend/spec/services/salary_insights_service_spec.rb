@@ -46,4 +46,9 @@ RSpec.describe SalaryInsightsService do
 
     expect(result).to eq(150.0)
   end
+  it "calculates salary by department" do
+    result = SalaryInsightsService.by_department("India")
+
+    expect(result["Engineering"]).to eq(150.0)
+  end
 end
