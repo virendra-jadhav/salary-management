@@ -15,7 +15,7 @@ RSpec.describe "Api::V1::Employees", type: :request do
   end
 
   describe "GET /index" do
-    it "returns employees" do
+    it "returns employees with meta" do
       Employee.create!(valid_attributes)
 
       get "/api/v1/employees"
@@ -23,7 +23,30 @@ RSpec.describe "Api::V1::Employees", type: :request do
       expect(response).to have_http_status(:ok)
       json = JSON.parse(response.body)
 
-      expect(json.length).to eq(1)
+      expect(json["employees"].length).to eq(1)
+      expect(json["meta"]).to be_present
+    end
+  end
+
+  # 🔥 NEW PAGINATION TEST
+  describe "GET /index with pagination" do
+    before do
+      15.times do |i|
+        Employee.create!(
+          valid_attributes.merge(email: "user#{i}@test.com")
+        )
+      end
+    end
+
+    it "returns paginated employees" do
+      get "/api/v1/employees", params: { page: 1, per_page: 10 }
+
+      expect(response).to have_http_status(:ok)
+      json = JSON.parse(response.body)
+
+      expect(json["employees"].length).to eq(10)
+      expect(json["meta"]["total_count"]).to eq(15)
+      expect(json["meta"]["current_page"]).to eq(1)
     end
   end
 
