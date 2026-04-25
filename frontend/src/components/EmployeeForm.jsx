@@ -68,14 +68,24 @@ const handleSubmit = async () => {
   }
 };
 
-  const handleDelete = async () => {
-    if (!editData?.id) return;
+//   const handleDelete = async () => {
+//     if (!editData?.id) return;
 
-    if (window.confirm("Are you sure?")) {
-      await api.delete(`/employees/${editData.id}`);
-      onSuccess();
-    }
-  };
+//     if (window.confirm("Are you sure?")) {
+//       await api.delete(`/employees/${editData.id}`);
+//       onSuccess();
+//     }
+//   };
+const handleDelete = async () => {
+  if (!editData?.id) return;
+
+  if (window.confirm("Are you sure?")) {
+    await api.delete(`/employees/${editData.id}`);
+
+    // 🔥 tell parent to refresh + clear selection
+    onSuccess(null);
+  }
+};
 
   return (
     <div className="bg-white p-6 rounded-2xl shadow-md space-y-6">

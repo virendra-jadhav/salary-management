@@ -27,14 +27,25 @@ export default function Home() {
         //     setSelectedEmployee(null);
         //     setRefresh(!refresh);
         //   }}
-        onSuccess={(updatedEmployee) => {
-            setRefresh((prev) => !prev);
+        // onSuccess={(updatedEmployee) => {
+        //     setRefresh((prev) => !prev);
 
-            // If update → keep form open with latest data
-            if (updatedEmployee?.id) {
-                setSelectedEmployee(updatedEmployee);
-            }
-            }}
+        //     // If update → keep form open with latest data
+        //     if (updatedEmployee?.id) {
+        //         setSelectedEmployee(updatedEmployee);
+        //     }
+        //     }}
+        onSuccess={(updatedEmployee) => {
+  setRefresh((prev) => !prev);
+
+  if (updatedEmployee) {
+    // update case
+    setSelectedEmployee(updatedEmployee);
+  } else {
+    // delete case → clear form
+    setSelectedEmployee(null);
+  }
+}}
           onCancel={() => setSelectedEmployee(null)}
         />
       )}
