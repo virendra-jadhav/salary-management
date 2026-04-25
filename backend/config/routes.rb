@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :employees
+
+      get "insights/country",    to: "insights#country"
+      get "insights/job_title",  to: "insights#job_title"
+      get "insights/department", to: "insights#department"
     end
   end
 end
