@@ -1,11 +1,54 @@
-# Salary Management Tool
+# Salary Management System
 
-A full-stack salary management app for 10,000 employees.
+This project is a minimal yet functional salary management tool built for an organization with 10,000 employees.
 
-## Tech Stack
+## 🚀 Tech Stack
+
 - Backend: Ruby on Rails (API mode)
 - Frontend: React
 - Database: PostgreSQL
+- Testing: RSpec
 
-## Setup
-See `/backend/README.md` and `/frontend/README.md`
+---
+
+## 🧠 Architecture
+
+- RESTful API built using Rails
+- Business logic handled via Service Layer (`SalaryInsightsService`)
+- React frontend consuming APIs
+
+---
+
+## 📦 Features
+
+### Employee Management
+- Create, update, delete employees
+- View employee list
+- Filter by country and job title
+
+### Salary Insights
+- Min, max, average salary by country
+- Average salary by job title
+- Department-wise salary insights
+
+---
+
+## ⚡ Performance Considerations
+
+- Used `insert_all` for seeding 10,000 employees
+- Indexed important fields (email, country, job_title)
+- Avoided N+1 queries
+
+---
+
+## 🌱 Seeding Data
+
+- Employee names are generated using:
+  - `first_names.txt`
+  - `last_names.txt`
+- Emails are generated uniquely using SecureRandom
+
+Run:
+```bash
+rails db:seed
+```
