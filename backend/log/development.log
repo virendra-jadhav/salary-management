@@ -282,3 +282,1220 @@ Processing by Api::V1::EmployeesController#index as HTML
 Completed 200 OK in 30ms (Views: 9.6ms | ActiveRecord: 12.9ms (2 queries, 0 cached) | GC: 1.7ms)
 
 
+Started POST "/api/v1/employees" for ::1 at 2026-04-25 18:36:54 +0530
+Processing by Api::V1::EmployeesController#create as HTML
+  Parameters: {"employee" => {"full_name" => "John Deo", "job_title" => "Enginner", "country" => "US", "salary" => "12344", "department" => "HR", "email" => "[FILTERED]", "hire_date" => "2026-01-01", "employment_type" => "Full-time"}}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN /*action='create',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:39:in 'Api::V1::EmployeesController#create'
+  [1m[36mEmployee Exists? (18.6ms)[0m  [1m[34mSELECT 1 AS one FROM "employees" WHERE "employees"."email" = 'johndeo@gmail.com' LIMIT 1 /*action='create',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:39:in 'Api::V1::EmployeesController#create'
+  [1m[36mEmployee Create (6.9ms)[0m  [1m[32mINSERT INTO "employees" ("full_name", "job_title", "country", "salary", "department", "email", "hire_date", "employment_type", "created_at", "updated_at") VALUES ('John Deo', 'Enginner', 'US', 12344.0, 'HR', 'johndeo@gmail.com', '2026-01-01', 'Full-time', '2026-04-25 13:06:55.312255', '2026-04-25 13:06:55.312255') RETURNING "id" /*action='create',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:39:in 'Api::V1::EmployeesController#create'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT /*action='create',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:39:in 'Api::V1::EmployeesController#create'
+Completed 201 Created in 347ms (Views: 4.6ms | ActiveRecord: 43.0ms (2 queries, 0 cached) | GC: 2.7ms)
+
+
+Started GET "/api/v1/employees?page=4&per_page=10" for ::1 at 2026-04-25 18:36:55 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "4", "per_page" => "10"}
+  [1m[36mEmployee Count (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (3.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 30 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 87ms (Views: 77.8ms | ActiveRecord: 4.6ms (2 queries, 0 cached) | GC: 2.0ms)
+
+
+Started GET "/api/v1/employees?page=5&per_page=10" for ::1 at 2026-04-25 18:37:04 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "5", "per_page" => "10"}
+  [1m[36mEmployee Count (3.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (8.6ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 40 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 33ms (Views: 11.5ms | ActiveRecord: 12.0ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=6&per_page=10" for ::1 at 2026-04-25 18:37:06 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "6", "per_page" => "10"}
+  [1m[36mEmployee Count (3.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (8.7ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 50 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 85ms (Views: 15.9ms | ActiveRecord: 12.0ms (2 queries, 0 cached) | GC: 3.6ms)
+
+
+Started GET "/api/v1/employees?page=7&per_page=10" for ::1 at 2026-04-25 18:37:07 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "7", "per_page" => "10"}
+  [1m[36mEmployee Count (3.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (8.8ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 60 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 82ms (Views: 13.6ms | ActiveRecord: 12.0ms (2 queries, 0 cached) | GC: 23.7ms)
+
+
+Started GET "/api/v1/employees?page=8&per_page=10" for ::1 at 2026-04-25 18:37:07 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "8", "per_page" => "10"}
+  [1m[36mEmployee Count (1.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (7.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 70 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 18ms (Views: 5.1ms | ActiveRecord: 9.0ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=9&per_page=10" for ::1 at 2026-04-25 18:37:08 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "9", "per_page" => "10"}
+  [1m[36mEmployee Count (2.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (8.0ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 80 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 23ms (Views: 7.2ms | ActiveRecord: 10.7ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=10&per_page=10" for ::1 at 2026-04-25 18:37:08 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "10", "per_page" => "10"}
+  [1m[36mEmployee Count (2.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (12.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 90 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 28ms (Views: 8.6ms | ActiveRecord: 15.0ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=11&per_page=10" for ::1 at 2026-04-25 18:37:09 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "11", "per_page" => "10"}
+  [1m[36mEmployee Count (3.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (10.6ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 100 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 26ms (Views: 7.7ms | ActiveRecord: 14.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=12&per_page=10" for ::1 at 2026-04-25 18:37:09 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "12", "per_page" => "10"}
+  [1m[36mEmployee Count (3.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (8.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 110 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 28ms (Views: 11.2ms | ActiveRecord: 11.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=13&per_page=10" for ::1 at 2026-04-25 18:37:10 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "13", "per_page" => "10"}
+  [1m[36mEmployee Count (3.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (8.7ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 120 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 26ms (Views: 8.5ms | ActiveRecord: 11.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=14&per_page=10" for ::1 at 2026-04-25 18:37:10 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "14", "per_page" => "10"}
+  [1m[36mEmployee Count (3.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (9.4ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 130 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 43ms (Views: 20.3ms | ActiveRecord: 12.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=15&per_page=10" for ::1 at 2026-04-25 18:37:11 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "15", "per_page" => "10"}
+  [1m[36mEmployee Count (2.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (12.0ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 140 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 405ms (Views: 381.4ms | ActiveRecord: 14.2ms (2 queries, 0 cached) | GC: 160.8ms)
+
+
+Started GET "/api/v1/employees?page=16&per_page=10" for ::1 at 2026-04-25 18:37:12 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "16", "per_page" => "10"}
+  [1m[36mEmployee Count (2.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (11.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 150 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 34ms (Views: 16.2ms | ActiveRecord: 13.5ms (2 queries, 0 cached) | GC: 4.8ms)
+
+
+Started GET "/api/v1/employees?page=17&per_page=10" for ::1 at 2026-04-25 18:37:12 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "17", "per_page" => "10"}
+  [1m[36mEmployee Count (2.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (9.0ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 160 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 30ms (Views: 11.7ms | ActiveRecord: 11.0ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=18&per_page=10" for ::1 at 2026-04-25 18:37:13 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "18", "per_page" => "10"}
+  [1m[36mEmployee Count (2.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (11.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 170 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 27ms (Views: 7.9ms | ActiveRecord: 13.9ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=19&per_page=10" for ::1 at 2026-04-25 18:37:13 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "19", "per_page" => "10"}
+  [1m[36mEmployee Count (3.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (12.7ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 180 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 34ms (Views: 13.7ms | ActiveRecord: 15.8ms (2 queries, 0 cached) | GC: 4.0ms)
+
+
+Started GET "/api/v1/employees?page=20&per_page=10" for ::1 at 2026-04-25 18:37:14 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "20", "per_page" => "10"}
+  [1m[36mEmployee Count (3.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (12.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 190 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 46ms (Views: 20.5ms | ActiveRecord: 15.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=21&per_page=10" for ::1 at 2026-04-25 18:37:14 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "21", "per_page" => "10"}
+  [1m[36mEmployee Count (3.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (15.0ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 200 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 37ms (Views: 9.6ms | ActiveRecord: 18.4ms (2 queries, 0 cached) | GC: 1.9ms)
+
+
+Started GET "/api/v1/employees?page=22&per_page=10" for ::1 at 2026-04-25 18:37:15 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "22", "per_page" => "10"}
+  [1m[36mEmployee Count (6.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (20.7ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 210 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 52ms (Views: 8.6ms | ActiveRecord: 26.9ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=23&per_page=10" for ::1 at 2026-04-25 18:37:15 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "23", "per_page" => "10"}
+  [1m[36mEmployee Count (4.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (23.4ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 220 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 65ms (Views: 24.0ms | ActiveRecord: 27.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=24&per_page=10" for ::1 at 2026-04-25 18:37:16 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "24", "per_page" => "10"}
+  [1m[36mEmployee Count (3.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (14.9ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 230 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 33ms (Views: 9.2ms | ActiveRecord: 18.0ms (2 queries, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/api/v1/employees?page=25&per_page=10" for ::1 at 2026-04-25 18:37:17 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "25", "per_page" => "10"}
+  [1m[36mEmployee Count (4.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (15.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 240 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 48ms (Views: 19.2ms | ActiveRecord: 19.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=26&per_page=10" for ::1 at 2026-04-25 18:37:17 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "26", "per_page" => "10"}
+  [1m[36mEmployee Count (2.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (7.6ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 250 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 18ms (Views: 4.4ms | ActiveRecord: 10.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=27&per_page=10" for ::1 at 2026-04-25 18:37:18 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "27", "per_page" => "10"}
+  [1m[36mEmployee Count (4.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (18.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 260 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 39ms (Views: 10.9ms | ActiveRecord: 22.5ms (2 queries, 0 cached) | GC: 1.2ms)
+
+
+Started GET "/api/v1/employees?page=28&per_page=10" for ::1 at 2026-04-25 18:37:18 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "28", "per_page" => "10"}
+  [1m[36mEmployee Count (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (8.4ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 270 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 28ms (Views: 14.3ms | ActiveRecord: 10.2ms (2 queries, 0 cached) | GC: 6.5ms)
+
+
+Started GET "/api/v1/employees?page=29&per_page=10" for ::1 at 2026-04-25 18:37:19 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "29", "per_page" => "10"}
+  [1m[36mEmployee Count (3.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (14.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 280 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 70ms (Views: 48.4ms | ActiveRecord: 17.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=30&per_page=10" for ::1 at 2026-04-25 18:37:19 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "30", "per_page" => "10"}
+  [1m[36mEmployee Count (3.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (13.8ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 290 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 30ms (Views: 7.5ms | ActiveRecord: 17.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=31&per_page=10" for ::1 at 2026-04-25 18:37:20 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "31", "per_page" => "10"}
+  [1m[36mEmployee Count (3.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (14.7ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 300 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 42ms (Views: 16.3ms | ActiveRecord: 18.0ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=32&per_page=10" for ::1 at 2026-04-25 18:37:20 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "32", "per_page" => "10"}
+  [1m[36mEmployee Count (3.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (14.9ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 310 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 32ms (Views: 8.0ms | ActiveRecord: 18.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=33&per_page=10" for ::1 at 2026-04-25 18:37:21 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "33", "per_page" => "10"}
+  [1m[36mEmployee Count (6.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (29.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 320 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 46ms (Views: 5.9ms | ActiveRecord: 35.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=34&per_page=10" for ::1 at 2026-04-25 18:37:21 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "34", "per_page" => "10"}
+  [1m[36mEmployee Count (2.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (11.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 330 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 30ms (Views: 11.3ms | ActiveRecord: 13.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=35&per_page=10" for ::1 at 2026-04-25 18:37:21 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "35", "per_page" => "10"}
+  [1m[36mEmployee Count (2.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (11.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 340 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 23ms (Views: 5.7ms | ActiveRecord: 13.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=36&per_page=10" for ::1 at 2026-04-25 18:37:21 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "36", "per_page" => "10"}
+  [1m[36mEmployee Count (3.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (15.6ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 350 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 65ms (Views: 41.7ms | ActiveRecord: 18.9ms (2 queries, 0 cached) | GC: 33.7ms)
+
+
+Started GET "/api/v1/employees?page=37&per_page=10" for ::1 at 2026-04-25 18:37:21 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "37", "per_page" => "10"}
+  [1m[36mEmployee Count (3.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (21.8ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 360 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 38ms (Views: 9.2ms | ActiveRecord: 24.8ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=38&per_page=10" for ::1 at 2026-04-25 18:37:22 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "38", "per_page" => "10"}
+  [1m[36mEmployee Count (3.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (15.9ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 370 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 29ms (Views: 4.0ms | ActiveRecord: 19.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=39&per_page=10" for ::1 at 2026-04-25 18:37:22 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "39", "per_page" => "10"}
+  [1m[36mEmployee Count (3.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (18.4ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 380 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 63ms (Views: 20.7ms | ActiveRecord: 21.6ms (2 queries, 0 cached) | GC: 8.5ms)
+
+
+Started GET "/api/v1/employees?page=40&per_page=10" for ::1 at 2026-04-25 18:37:22 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "40", "per_page" => "10"}
+  [1m[36mEmployee Count (3.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (47.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 390 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 69ms (Views: 12.2ms | ActiveRecord: 50.2ms (2 queries, 0 cached) | GC: 3.1ms)
+
+
+Started GET "/api/v1/employees?page=41&per_page=10" for ::1 at 2026-04-25 18:37:22 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "41", "per_page" => "10"}
+  [1m[36mEmployee Count (7.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (40.0ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 400 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 63ms (Views: 9.2ms | ActiveRecord: 47.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=42&per_page=10" for ::1 at 2026-04-25 18:37:23 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "42", "per_page" => "10"}
+  [1m[36mEmployee Count (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (7.7ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 410 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 17ms (Views: 4.8ms | ActiveRecord: 9.2ms (2 queries, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/api/v1/employees?page=43&per_page=10" for ::1 at 2026-04-25 18:37:23 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "43", "per_page" => "10"}
+  [1m[36mEmployee Count (6.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (41.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 420 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 61ms (Views: 8.2ms | ActiveRecord: 47.7ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=44&per_page=10" for ::1 at 2026-04-25 18:37:23 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "44", "per_page" => "10"}
+  [1m[36mEmployee Count (7.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (41.6ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 430 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 64ms (Views: 9.3ms | ActiveRecord: 48.8ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=45&per_page=10" for ::1 at 2026-04-25 18:37:23 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "45", "per_page" => "10"}
+  [1m[36mEmployee Count (3.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (20.8ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 440 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 40ms (Views: 10.1ms | ActiveRecord: 24.3ms (2 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/api/v1/employees?page=46&per_page=10" for ::1 at 2026-04-25 18:37:24 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "46", "per_page" => "10"}
+  [1m[36mEmployee Count (3.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (21.9ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 450 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 40ms (Views: 8.7ms | ActiveRecord: 25.1ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=47&per_page=10" for ::1 at 2026-04-25 18:37:24 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "47", "per_page" => "10"}
+  [1m[36mEmployee Count (6.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (43.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 460 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 62ms (Views: 8.1ms | ActiveRecord: 49.7ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=48&per_page=10" for ::1 at 2026-04-25 18:37:24 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "48", "per_page" => "10"}
+  [1m[36mEmployee Count (6.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (42.0ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 470 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 61ms (Views: 6.3ms | ActiveRecord: 48.6ms (2 queries, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/api/v1/employees?page=49&per_page=10" for ::1 at 2026-04-25 18:37:24 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "49", "per_page" => "10"}
+  [1m[36mEmployee Count (2.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (13.8ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 480 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 30ms (Views: 10.3ms | ActiveRecord: 16.3ms (2 queries, 0 cached) | GC: 3.3ms)
+
+
+Started GET "/api/v1/employees?page=50&per_page=10" for ::1 at 2026-04-25 18:37:24 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "50", "per_page" => "10"}
+  [1m[36mEmployee Count (3.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (28.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 490 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 41ms (Views: 5.5ms | ActiveRecord: 32.0ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=51&per_page=10" for ::1 at 2026-04-25 18:37:25 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "51", "per_page" => "10"}
+  [1m[36mEmployee Count (4.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (28.7ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 500 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 42ms (Views: 5.6ms | ActiveRecord: 33.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=52&per_page=10" for ::1 at 2026-04-25 18:37:25 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "52", "per_page" => "10"}
+  [1m[36mEmployee Count (2.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (16.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 510 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 28ms (Views: 6.2ms | ActiveRecord: 18.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=53&per_page=10" for ::1 at 2026-04-25 18:37:25 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "53", "per_page" => "10"}
+  [1m[36mEmployee Count (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (14.8ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 520 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 25ms (Views: 5.4ms | ActiveRecord: 16.7ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=54&per_page=10" for ::1 at 2026-04-25 18:37:25 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "54", "per_page" => "10"}
+  [1m[36mEmployee Count (2.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (14.8ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 530 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 35ms (Views: 11.5ms | ActiveRecord: 17.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=55&per_page=10" for ::1 at 2026-04-25 18:37:25 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "55", "per_page" => "10"}
+  [1m[36mEmployee Count (2.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (16.8ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 540 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 31ms (Views: 6.1ms | ActiveRecord: 19.0ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=56&per_page=10" for ::1 at 2026-04-25 18:37:26 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "56", "per_page" => "10"}
+  [1m[36mEmployee Count (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (9.0ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 550 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 15ms (Views: 3.1ms | ActiveRecord: 10.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=57&per_page=10" for ::1 at 2026-04-25 18:37:26 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "57", "per_page" => "10"}
+  [1m[36mEmployee Count (3.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (23.9ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 560 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 93ms (Views: 57.2ms | ActiveRecord: 26.9ms (2 queries, 0 cached) | GC: 40.7ms)
+
+
+Started GET "/api/v1/employees?page=58&per_page=10" for ::1 at 2026-04-25 18:37:26 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "58", "per_page" => "10"}
+  [1m[36mEmployee Count (2.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (24.6ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 570 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 42ms (Views: 8.6ms | ActiveRecord: 27.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=59&per_page=10" for ::1 at 2026-04-25 18:37:26 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "59", "per_page" => "10"}
+  [1m[36mEmployee Count (5.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (44.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 580 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 61ms (Views: 5.2ms | ActiveRecord: 49.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=60&per_page=10" for ::1 at 2026-04-25 18:37:27 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "60", "per_page" => "10"}
+  [1m[36mEmployee Count (3.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (23.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 590 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 37ms (Views: 7.6ms | ActiveRecord: 26.6ms (2 queries, 0 cached) | GC: 1.9ms)
+
+
+Started GET "/api/v1/employees?page=61&per_page=10" for ::1 at 2026-04-25 18:37:27 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "61", "per_page" => "10"}
+  [1m[36mEmployee Count (3.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (50.9ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 600 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 69ms (Views: 9.4ms | ActiveRecord: 54.7ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=62&per_page=10" for ::1 at 2026-04-25 18:37:27 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "62", "per_page" => "10"}
+  [1m[36mEmployee Count (6.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (46.4ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 610 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 64ms (Views: 5.2ms | ActiveRecord: 53.0ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=63&per_page=10" for ::1 at 2026-04-25 18:37:28 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "63", "per_page" => "10"}
+  [1m[36mEmployee Count (7.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (51.4ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 620 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 72ms (Views: 7.2ms | ActiveRecord: 58.6ms (2 queries, 0 cached) | GC: 0.9ms)
+
+
+Started GET "/api/v1/employees?page=64&per_page=10" for ::1 at 2026-04-25 18:37:28 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "64", "per_page" => "10"}
+  [1m[36mEmployee Count (7.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (42.8ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 630 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 66ms (Views: 10.2ms | ActiveRecord: 50.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=65&per_page=10" for ::1 at 2026-04-25 18:37:28 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "65", "per_page" => "10"}
+  [1m[36mEmployee Count (4.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (26.6ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 640 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 46ms (Views: 8.8ms | ActiveRecord: 30.7ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=66&per_page=10" for ::1 at 2026-04-25 18:37:28 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "66", "per_page" => "10"}
+  [1m[36mEmployee Count (3.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (26.6ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 650 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 46ms (Views: 10.5ms | ActiveRecord: 29.8ms (2 queries, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/api/v1/employees?page=67&per_page=10" for ::1 at 2026-04-25 18:37:29 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "67", "per_page" => "10"}
+  [1m[36mEmployee Count (3.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (26.5ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 660 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 45ms (Views: 8.5ms | ActiveRecord: 30.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=68&per_page=10" for ::1 at 2026-04-25 18:37:29 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "68", "per_page" => "10"}
+  [1m[36mEmployee Count (3.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (28.7ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 670 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 46ms (Views: 8.5ms | ActiveRecord: 32.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=69&per_page=10" for ::1 at 2026-04-25 18:37:29 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "69", "per_page" => "10"}
+  [1m[36mEmployee Count (2.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (26.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 680 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 44ms (Views: 9.1ms | ActiveRecord: 28.9ms (2 queries, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/api/v1/employees?page=70&per_page=10" for ::1 at 2026-04-25 18:37:29 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "70", "per_page" => "10"}
+  [1m[36mEmployee Count (3.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (28.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 690 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 54ms (Views: 11.1ms | ActiveRecord: 31.5ms (2 queries, 0 cached) | GC: 5.7ms)
+
+
+Started GET "/api/v1/employees?page=71&per_page=10" for ::1 at 2026-04-25 18:37:29 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "71", "per_page" => "10"}
+  [1m[36mEmployee Count (2.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (17.5ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 700 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 30ms (Views: 5.4ms | ActiveRecord: 19.9ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=72&per_page=10" for ::1 at 2026-04-25 18:37:30 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "72", "per_page" => "10"}
+  [1m[36mEmployee Count (2.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (18.5ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 710 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 30ms (Views: 5.7ms | ActiveRecord: 20.9ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=73&per_page=10" for ::1 at 2026-04-25 18:37:30 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "73", "per_page" => "10"}
+  [1m[36mEmployee Count (2.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (18.4ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 720 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 29ms (Views: 5.5ms | ActiveRecord: 20.7ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=74&per_page=10" for ::1 at 2026-04-25 18:37:30 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "74", "per_page" => "10"}
+  [1m[36mEmployee Count (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (19.9ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 730 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 32ms (Views: 6.3ms | ActiveRecord: 21.8ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=75&per_page=10" for ::1 at 2026-04-25 18:37:30 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "75", "per_page" => "10"}
+  [1m[36mEmployee Count (1.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (17.5ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 740 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 29ms (Views: 5.4ms | ActiveRecord: 19.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=76&per_page=10" for ::1 at 2026-04-25 18:37:30 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "76", "per_page" => "10"}
+  [1m[36mEmployee Count (4.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (36.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 750 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 50ms (Views: 5.5ms | ActiveRecord: 40.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=77&per_page=10" for ::1 at 2026-04-25 18:37:30 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "77", "per_page" => "10"}
+  [1m[36mEmployee Count (4.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (36.9ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 760 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 58ms (Views: 12.1ms | ActiveRecord: 41.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=78&per_page=10" for ::1 at 2026-04-25 18:37:31 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "78", "per_page" => "10"}
+  [1m[36mEmployee Count (4.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (36.8ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 770 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 57ms (Views: 12.9ms | ActiveRecord: 41.1ms (2 queries, 0 cached) | GC: 6.9ms)
+
+
+Started GET "/api/v1/employees?page=79&per_page=10" for ::1 at 2026-04-25 18:37:31 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "79", "per_page" => "10"}
+  [1m[36mEmployee Count (3.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (36.9ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 780 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 49ms (Views: 5.4ms | ActiveRecord: 40.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=80&per_page=10" for ::1 at 2026-04-25 18:37:31 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "80", "per_page" => "10"}
+  [1m[36mEmployee Count (4.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (37.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 790 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 66ms (Views: 16.6ms | ActiveRecord: 42.1ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=81&per_page=10" for ::1 at 2026-04-25 18:37:31 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "81", "per_page" => "10"}
+  [1m[36mEmployee Count (3.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (30.4ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 800 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 58ms (Views: 14.8ms | ActiveRecord: 33.4ms (2 queries, 0 cached) | GC: 3.8ms)
+
+
+Started GET "/api/v1/employees?page=82&per_page=10" for ::1 at 2026-04-25 18:37:32 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "82", "per_page" => "10"}
+  [1m[36mEmployee Count (4.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (59.4ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 810 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 88ms (Views: 16.2ms | ActiveRecord: 63.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=83&per_page=10" for ::1 at 2026-04-25 18:37:32 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "83", "per_page" => "10"}
+  [1m[36mEmployee Count (6.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (65.8ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 820 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 87ms (Views: 9.7ms | ActiveRecord: 72.0ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=84&per_page=10" for ::1 at 2026-04-25 18:37:32 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "84", "per_page" => "10"}
+  [1m[36mEmployee Count (3.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (28.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 830 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 48ms (Views: 9.3ms | ActiveRecord: 32.1ms (2 queries, 0 cached) | GC: 1.4ms)
+
+
+Started GET "/api/v1/employees?page=85&per_page=10" for ::1 at 2026-04-25 18:37:33 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "85", "per_page" => "10"}
+  [1m[36mEmployee Count (3.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (29.8ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 840 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 52ms (Views: 9.2ms | ActiveRecord: 32.8ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=86&per_page=10" for ::1 at 2026-04-25 18:37:33 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "86", "per_page" => "10"}
+  [1m[36mEmployee Count (6.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (42.0ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 850 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 66ms (Views: 8.2ms | ActiveRecord: 48.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=87&per_page=10" for ::1 at 2026-04-25 18:37:33 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "87", "per_page" => "10"}
+  [1m[36mEmployee Count (6.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (61.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 860 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 81ms (Views: 7.1ms | ActiveRecord: 67.5ms (2 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/api/v1/employees?page=88&per_page=10" for ::1 at 2026-04-25 18:37:33 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "88", "per_page" => "10"}
+  [1m[36mEmployee Count (5.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (67.7ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 870 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 85ms (Views: 6.4ms | ActiveRecord: 73.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=89&per_page=10" for ::1 at 2026-04-25 18:37:34 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "89", "per_page" => "10"}
+  [1m[36mEmployee Count (3.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (30.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 880 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 49ms (Views: 9.5ms | ActiveRecord: 33.7ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=90&per_page=10" for ::1 at 2026-04-25 18:37:34 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "90", "per_page" => "10"}
+  [1m[36mEmployee Count (3.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (35.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 890 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 49ms (Views: 6.0ms | ActiveRecord: 39.0ms (2 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/api/v1/employees?page=91&per_page=10" for ::1 at 2026-04-25 18:37:34 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "91", "per_page" => "10"}
+  [1m[36mEmployee Count (4.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (44.5ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 900 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 61ms (Views: 7.2ms | ActiveRecord: 48.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=92&per_page=10" for ::1 at 2026-04-25 18:37:35 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "92", "per_page" => "10"}
+  [1m[36mEmployee Count (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (12.5ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 910 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 19ms (Views: 3.4ms | ActiveRecord: 13.8ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=93&per_page=10" for ::1 at 2026-04-25 18:37:35 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "93", "per_page" => "10"}
+  [1m[36mEmployee Count (3.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (25.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 920 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 53ms (Views: 15.9ms | ActiveRecord: 28.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=94&per_page=10" for ::1 at 2026-04-25 18:37:35 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "94", "per_page" => "10"}
+  [1m[36mEmployee Count (3.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (24.4ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 930 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 41ms (Views: 8.9ms | ActiveRecord: 28.0ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=95&per_page=10" for ::1 at 2026-04-25 18:37:35 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "95", "per_page" => "10"}
+  [1m[36mEmployee Count (3.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (25.0ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 940 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 40ms (Views: 7.0ms | ActiveRecord: 28.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=96&per_page=10" for ::1 at 2026-04-25 18:37:35 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "96", "per_page" => "10"}
+  [1m[36mEmployee Count (2.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (25.6ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 950 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 49ms (Views: 14.1ms | ActiveRecord: 28.1ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=97&per_page=10" for ::1 at 2026-04-25 18:37:36 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "97", "per_page" => "10"}
+  [1m[36mEmployee Count (3.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (25.7ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 960 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 41ms (Views: 7.4ms | ActiveRecord: 29.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=98&per_page=10" for ::1 at 2026-04-25 18:37:36 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "98", "per_page" => "10"}
+  [1m[36mEmployee Count (3.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (26.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 970 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 41ms (Views: 7.5ms | ActiveRecord: 29.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=99&per_page=10" for ::1 at 2026-04-25 18:37:36 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "99", "per_page" => "10"}
+  [1m[36mEmployee Count (2.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (27.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 980 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 48ms (Views: 13.7ms | ActiveRecord: 30.0ms (2 queries, 0 cached) | GC: 6.6ms)
+
+
+Started GET "/api/v1/employees?page=100&per_page=10" for ::1 at 2026-04-25 18:37:36 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "100", "per_page" => "10"}
+  [1m[36mEmployee Count (3.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (27.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 990 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 42ms (Views: 7.2ms | ActiveRecord: 30.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=101&per_page=10" for ::1 at 2026-04-25 18:37:36 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "101", "per_page" => "10"}
+  [1m[36mEmployee Count (2.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (27.9ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 1000 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 44ms (Views: 7.1ms | ActiveRecord: 30.7ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=102&per_page=10" for ::1 at 2026-04-25 18:37:37 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "102", "per_page" => "10"}
+  [1m[36mEmployee Count (2.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (25.7ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 1010 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 43ms (Views: 6.9ms | ActiveRecord: 28.1ms (2 queries, 0 cached) | GC: 3.5ms)
+
+
+Started GET "/api/v1/employees?page=103&per_page=10" for ::1 at 2026-04-25 18:37:37 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "103", "per_page" => "10"}
+  [1m[36mEmployee Count (3.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (26.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 1020 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 40ms (Views: 6.5ms | ActiveRecord: 29.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=104&per_page=10" for ::1 at 2026-04-25 18:37:37 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "104", "per_page" => "10"}
+  [1m[36mEmployee Count (3.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (27.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 1030 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 43ms (Views: 7.0ms | ActiveRecord: 30.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=105&per_page=10" for ::1 at 2026-04-25 18:37:37 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "105", "per_page" => "10"}
+  [1m[36mEmployee Count (2.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (27.4ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 1040 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 59ms (Views: 16.5ms | ActiveRecord: 29.9ms (2 queries, 0 cached) | GC: 1.8ms)
+
+
+Started GET "/api/v1/employees?page=106&per_page=10" for ::1 at 2026-04-25 18:37:37 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "106", "per_page" => "10"}
+  [1m[36mEmployee Count (2.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (27.5ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 1050 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 42ms (Views: 7.3ms | ActiveRecord: 30.1ms (2 queries, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/api/v1/employees?page=107&per_page=10" for ::1 at 2026-04-25 18:37:37 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "107", "per_page" => "10"}
+  [1m[36mEmployee Count (2.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (27.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 1060 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 42ms (Views: 7.8ms | ActiveRecord: 29.9ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=108&per_page=10" for ::1 at 2026-04-25 18:37:38 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "108", "per_page" => "10"}
+  [1m[36mEmployee Count (5.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (51.8ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 1070 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 69ms (Views: 5.3ms | ActiveRecord: 56.8ms (2 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/api/v1/employees?page=109&per_page=10" for ::1 at 2026-04-25 18:37:38 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "109", "per_page" => "10"}
+  [1m[36mEmployee Count (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (13.9ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 1080 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 21ms (Views: 4.1ms | ActiveRecord: 15.1ms (2 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/api/v1/employees?page=110&per_page=10" for ::1 at 2026-04-25 18:37:38 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "110", "per_page" => "10"}
+  [1m[36mEmployee Count (4.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (35.9ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 1090 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 55ms (Views: 8.8ms | ActiveRecord: 40.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=111&per_page=10" for ::1 at 2026-04-25 18:37:38 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "111", "per_page" => "10"}
+  [1m[36mEmployee Count (8.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (49.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 1100 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 69ms (Views: 5.8ms | ActiveRecord: 57.4ms (2 queries, 0 cached) | GC: 2.5ms)
+
+
+Started GET "/api/v1/employees?page=112&per_page=10" for ::1 at 2026-04-25 18:37:38 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "112", "per_page" => "10"}
+  [1m[36mEmployee Count (2.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (39.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 1110 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 70ms (Views: 18.7ms | ActiveRecord: 41.9ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/insights/country?country=US" for ::1 at 2026-04-25 18:37:44 +0530
+Processing by Api::V1::InsightsController#country as HTML
+  Parameters: {"country" => "US"}
+  [1m[36mEmployee Minimum (7.8ms)[0m  [1m[34mSELECT MIN("employees"."salary") FROM "employees" WHERE "employees"."country" = 'US' /*action='country',application='Backend',controller='insights'*/[0m
+  ↳ app/services/salary_insights_service.rb:6:in 'SalaryInsightsService.by_country'
+  [1m[36mEmployee Maximum (5.5ms)[0m  [1m[34mSELECT MAX("employees"."salary") FROM "employees" WHERE "employees"."country" = 'US' /*action='country',application='Backend',controller='insights'*/[0m
+  ↳ app/services/salary_insights_service.rb:7:in 'SalaryInsightsService.by_country'
+  [1m[36mEmployee Average (6.0ms)[0m  [1m[34mSELECT AVG("employees"."salary") FROM "employees" WHERE "employees"."country" = 'US' /*action='country',application='Backend',controller='insights'*/[0m
+  ↳ app/services/salary_insights_service.rb:8:in 'SalaryInsightsService.by_country'
+Completed 200 OK in 109ms (Views: 13.3ms | ActiveRecord: 19.1ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started PUT "/api/v1/employees/574" for ::1 at 2026-04-25 18:38:08 +0530
+Processing by Api::V1::EmployeesController#update as HTML
+  Parameters: {"employee" => {"id" => 574, "full_name" => "Arjun Fernandes", "job_title" => "Analyst", "country" => "UK", "salary" => "121385", "department" => "Finance", "email" => "[FILTERED]", "hire_date" => "2023-01-05", "employment_type" => "Full-time", "created_at" => "2026-04-25T12:01:24.971Z", "updated_at" => "2026-04-25T12:01:24.971Z"}, "id" => "574"}
+  [1m[36mEmployee Load (1.5ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 574 LIMIT 1 /*action='update',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:64:in 'Api::V1::EmployeesController#set_employee'
+[31mUnpermitted parameters: :id, :created_at, :updated_at. Context: { controller: Api::V1::EmployeesController, action: update, request: #<ActionDispatch::Request:0x000076d60391afa0>, params: {"employee" => {"id" => 574, "full_name" => "Arjun Fernandes", "job_title" => "Analyst", "country" => "UK", "salary" => "121385", "department" => "Finance", "email" => "[FILTERED]", "hire_date" => "2023-01-05", "employment_type" => "Full-time", "created_at" => "2026-04-25T12:01:24.971Z", "updated_at" => "2026-04-25T12:01:24.971Z"}, "controller" => "api/v1/employees", "action" => "update", "id" => "574"} }[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN /*action='update',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:48:in 'Api::V1::EmployeesController#update'
+  [1m[36mEmployee Update (6.8ms)[0m  [1m[33mUPDATE "employees" SET "salary" = 121385.0, "updated_at" = '2026-04-25 13:08:08.982358' WHERE "employees"."id" = 574 /*action='update',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:48:in 'Api::V1::EmployeesController#update'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT /*action='update',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:48:in 'Api::V1::EmployeesController#update'
+Completed 200 OK in 75ms (Views: 0.5ms | ActiveRecord: 25.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=112&per_page=10" for ::1 at 2026-04-25 18:38:09 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "112", "per_page" => "10"}
+  [1m[36mEmployee Count (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (18.9ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 1110 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 34ms (Views: 9.2ms | ActiveRecord: 20.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=111&per_page=10" for ::1 at 2026-04-25 18:38:13 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "111", "per_page" => "10"}
+  [1m[36mEmployee Count (2.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (27.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 1100 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 39ms (Views: 6.4ms | ActiveRecord: 29.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=1&per_page=10" for ::1 at 2026-04-25 18:38:16 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "1", "per_page" => "10"}
+  [1m[36mEmployee Count (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (3.5ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 0 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 15ms (Views: 6.6ms | ActiveRecord: 5.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started PUT "/api/v1/employees/497" for ::1 at 2026-04-25 18:38:26 +0530
+Processing by Api::V1::EmployeesController#update as HTML
+  Parameters: {"employee" => {"id" => 497, "full_name" => "Aisha Anderson", "job_title" => "Analyst", "country" => "UK", "salary" => "99963.0", "department" => "Engineering", "email" => "[FILTERED]", "hire_date" => "2023-04-22", "employment_type" => "Contract", "created_at" => "2026-04-25T12:01:24.964Z", "updated_at" => "2026-04-25T12:01:24.964Z"}, "id" => "497"}
+  [1m[36mEmployee Load (1.8ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 497 LIMIT 1 /*action='update',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:64:in 'Api::V1::EmployeesController#set_employee'
+[31mUnpermitted parameters: :id, :created_at, :updated_at. Context: { controller: Api::V1::EmployeesController, action: update, request: #<ActionDispatch::Request:0x000076d6155ee108>, params: {"employee" => {"id" => 497, "full_name" => "Aisha Anderson", "job_title" => "Analyst", "country" => "UK", "salary" => "99963.0", "department" => "Engineering", "email" => "[FILTERED]", "hire_date" => "2023-04-22", "employment_type" => "Contract", "created_at" => "2026-04-25T12:01:24.964Z", "updated_at" => "2026-04-25T12:01:24.964Z"}, "controller" => "api/v1/employees", "action" => "update", "id" => "497"} }[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN /*action='update',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:48:in 'Api::V1::EmployeesController#update'
+  [1m[36mEmployee Update (8.9ms)[0m  [1m[33mUPDATE "employees" SET "salary" = 99963.0, "updated_at" = '2026-04-25 13:08:26.902358' WHERE "employees"."id" = 497 /*action='update',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:48:in 'Api::V1::EmployeesController#update'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT /*action='update',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:48:in 'Api::V1::EmployeesController#update'
+Completed 200 OK in 50ms (Views: 0.8ms | ActiveRecord: 13.6ms (2 queries, 0 cached) | GC: 10.7ms)
+
+
+Started GET "/api/v1/employees?page=1&per_page=10" for ::1 at 2026-04-25 18:38:26 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "1", "per_page" => "10"}
+  [1m[36mEmployee Count (3.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (14.8ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 0 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 43ms (Views: 15.5ms | ActiveRecord: 18.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started PUT "/api/v1/employees/497" for ::1 at 2026-04-25 18:41:16 +0530
+Processing by Api::V1::EmployeesController#update as HTML
+  Parameters: {"employee" => {"id" => 497, "full_name" => "Aisha Anderson", "job_title" => "Analyst", "country" => "UK", "salary" => "99963.0", "department" => "Engineering", "email" => "[FILTERED]", "hire_date" => "2023-04-22", "employment_type" => "Contract", "created_at" => "2026-04-25T12:01:24.964Z", "updated_at" => "2026-04-25T13:08:26.902Z"}, "id" => "497"}
+  [1m[36mEmployee Load (0.8ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = 497 LIMIT 1 /*action='update',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:64:in 'Api::V1::EmployeesController#set_employee'
+[31mUnpermitted parameters: :id, :created_at, :updated_at. Context: { controller: Api::V1::EmployeesController, action: update, request: #<ActionDispatch::Request:0x000076d611132000>, params: {"employee" => {"id" => 497, "full_name" => "Aisha Anderson", "job_title" => "Analyst", "country" => "UK", "salary" => "99963.0", "department" => "Engineering", "email" => "[FILTERED]", "hire_date" => "2023-04-22", "employment_type" => "Contract", "created_at" => "2026-04-25T12:01:24.964Z", "updated_at" => "2026-04-25T13:08:26.902Z"}, "controller" => "api/v1/employees", "action" => "update", "id" => "497"} }[0m
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 0.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/employees?page=1&per_page=10" for ::1 at 2026-04-25 18:41:16 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "1", "per_page" => "10"}
+  [1m[36mEmployee Count (2.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:24:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (4.9ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 0 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:20:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 17ms (Views: 5.1ms | ActiveRecord: 7.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/employees" for ::1 at 2026-04-25 18:41:21 +0530
+Processing by Api::V1::EmployeesController#create as HTML
+  Parameters: {"employee" => {"full_name" => "", "job_title" => "", "country" => "", "salary" => "", "department" => "", "email" => "[FILTERED]", "hire_date" => "", "employment_type" => "Full-time"}}
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN /*action='create',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:39:in 'Api::V1::EmployeesController#create'
+  [1m[36mEmployee Exists? (11.3ms)[0m  [1m[34mSELECT 1 AS one FROM "employees" WHERE "employees"."email" = '' LIMIT 1 /*action='create',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:39:in 'Api::V1::EmployeesController#create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[31mROLLBACK /*action='create',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:39:in 'Api::V1::EmployeesController#create'
+Completed 422 Unprocessable Content in 1070ms (Views: 0.2ms | ActiveRecord: 12.8ms (1 query, 0 cached) | GC: 182.4ms)
+
+

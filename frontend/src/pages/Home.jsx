@@ -23,10 +23,18 @@ export default function Home() {
       {selectedEmployee && (
         <EmployeeForm
           editData={selectedEmployee}
-          onSuccess={() => {
-            setSelectedEmployee(null);
-            setRefresh(!refresh);
-          }}
+        //   onSuccess={() => {
+        //     setSelectedEmployee(null);
+        //     setRefresh(!refresh);
+        //   }}
+        onSuccess={(updatedEmployee) => {
+            setRefresh((prev) => !prev);
+
+            // If update → keep form open with latest data
+            if (updatedEmployee?.id) {
+                setSelectedEmployee(updatedEmployee);
+            }
+            }}
           onCancel={() => setSelectedEmployee(null)}
         />
       )}

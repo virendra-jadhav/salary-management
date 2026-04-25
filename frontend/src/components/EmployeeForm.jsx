@@ -1,39 +1,72 @@
 import { useState, useEffect } from "react";
 import { api } from "../api/client";
 
-export default function EmployeeForm({ editData, onSuccess, onCancel }) {
-  const [form, setForm] = useState({
-    full_name: "",
-    job_title: "",
-    country: "",
-    salary: "",
-    department: "",
-    email: "",
-    hire_date: "",
-    employment_type: "Full-time",
-  });
+const initialForm = {
+  full_name: "",
+  job_title: "",
+  country: "",
+  salary: "",
+  department: "",
+  email: "",
+  hire_date: "",
+  employment_type: "Full-time",
+};
 
-  useEffect(() => {
+export default function EmployeeForm({ editData, onSuccess, onCancel }) {
+  const [form, setForm] = useState(initialForm);
+
+//   useEffect(() => {
+//     if (editData && editData.id) {
+//       setForm(editData);
+//     }
+//   }, [editData]);
+    useEffect(() => {
     if (editData && editData.id) {
-      setForm(editData);
+        setForm(editData);
+    } else {
+        setForm(initialForm);
     }
-  }, [editData]);
+    }, [editData]);
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = async () => {
-    try {
-      if (editData?.id) {
-        await api.put(`/employees/${editData.id}`, { employee: form });
-      } else {
-        await api.post("/employees", { employee: form });
-      }
-      onSuccess();
-    } catch {
-      alert("Error saving employee");
+//   const handleSubmit = async () => {
+//     try {
+//       if (editData?.id) {
+//         await api.put(`/employees/${editData.id}`, { employee: form });
+//       } else {
+//         await api.post("/employees", { employee: form });
+//       }
+//       onSuccess();
+//       setForm(initialForm);
+//     } catch {
+//       alert("Error saving employee");
+//     }
+//   };
+const handleSubmit = async () => {
+  try {
+    let res;
+
+    if (editData?.id) {
+      res = await api.put(`/employees/${editData.id}`, { employee: form });
+    } else {
+      res = await api.post("/employees", { employee: form });
     }
-  };
+
+    const savedEmployee = res.data;
+
+    // 🔥 pass data back to parent
+    onSuccess(savedEmployee);
+
+    // Reset form ONLY for create
+    if (!editData?.id) {
+      setForm(initialForm);
+    }
+  } catch {
+    alert("Error saving employee");
+  }
+};
 
   const handleDelete = async () => {
     if (!editData?.id) return;
@@ -45,52 +78,93 @@ export default function EmployeeForm({ editData, onSuccess, onCancel }) {
   };
 
   return (
-    <div className="bg-white p-5 rounded-xl shadow space-y-4">
-      <h2 className="text-lg font-semibold">
+    <div className="bg-white p-6 rounded-2xl shadow-md space-y-6">
+      <h2 className="text-xl font-semibold text-gray-800">
         {editData?.id ? "Edit Employee" : "Create Employee"}
       </h2>
 
-      <div className="grid grid-cols-2 gap-3">
-        <div>
-          <label>Name</label>
-          <input className="input" name="full_name" value={form.full_name} onChange={handleChange} />
+      {/* FORM GRID */}
+      <div className="grid grid-cols-2 gap-5">
+
+        {/* FIELD */}
+        <div className="flex flex-col gap-1">
+          <label className="text-sm text-gray-600">Full Name</label>
+          <input
+            className="input-modern"
+            name="full_name"
+            value={form.full_name}
+            onChange={handleChange}
+          />
         </div>
 
-        <div>
-          <label>Job Title</label>
-          <input className="input" name="job_title" value={form.job_title} onChange={handleChange} />
+        <div className="flex flex-col gap-1">
+          <label className="text-sm text-gray-600">Job Title</label>
+          <input
+            className="input-modern"
+            name="job_title"
+            value={form.job_title}
+            onChange={handleChange}
+          />
         </div>
 
-        <div>
-          <label>Country</label>
-          <input className="input" name="country" value={form.country} onChange={handleChange} />
+        <div className="flex flex-col gap-1">
+          <label className="text-sm text-gray-600">Country</label>
+          <input
+            className="input-modern"
+            name="country"
+            value={form.country}
+            onChange={handleChange}
+          />
         </div>
 
-        <div>
-          <label>Salary</label>
-          <input className="input" name="salary" value={form.salary} onChange={handleChange} />
+        <div className="flex flex-col gap-1">
+          <label className="text-sm text-gray-600">Salary</label>
+          <input
+            className="input-modern"
+            name="salary"
+            value={form.salary}
+            onChange={handleChange}
+          />
         </div>
 
-        <div>
-          <label>Department</label>
-          <input className="input" name="department" value={form.department} onChange={handleChange} />
+        <div className="flex flex-col gap-1">
+          <label className="text-sm text-gray-600">Department</label>
+          <input
+            className="input-modern"
+            name="department"
+            value={form.department}
+            onChange={handleChange}
+          />
         </div>
 
-        <div>
-          <label>Email</label>
-          <input className="input" name="email" value={form.email} onChange={handleChange} />
+        <div className="flex flex-col gap-1">
+          <label className="text-sm text-gray-600">Email</label>
+          <input
+            className="input-modern"
+            name="email"
+            value={form.email}
+            onChange={handleChange}
+          />
         </div>
 
-        <div>
-          <label>Hire Date</label>
-          <input type="date" className="input" name="hire_date" value={form.hire_date} onChange={handleChange} />
+        <div className="flex flex-col gap-1">
+          <label className="text-sm text-gray-600">Hire Date</label>
+          <input
+            type="date"
+            className="input-modern"
+            name="hire_date"
+            value={form.hire_date}
+            onChange={handleChange}
+          />
         </div>
+
       </div>
 
-      <div className="flex gap-3">
+      {/* ACTION BUTTONS */}
+      <div className="flex gap-3 pt-2">
         <button
           onClick={handleSubmit}
-          className="bg-blue-600 text-white px-4 py-2 rounded"
+          className="px-5 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition"
         >
           {editData?.id ? "Update" : "Create"}
         </button>
@@ -98,7 +172,7 @@ export default function EmployeeForm({ editData, onSuccess, onCancel }) {
         {editData?.id && (
           <button
             onClick={handleDelete}
-            className="bg-red-600 text-white px-4 py-2 rounded"
+            className="px-5 py-2 rounded-lg bg-red-600 text-white hover:bg-red-700 transition"
           >
             Delete
           </button>
@@ -106,7 +180,7 @@ export default function EmployeeForm({ editData, onSuccess, onCancel }) {
 
         <button
           onClick={onCancel}
-          className="bg-gray-300 px-4 py-2 rounded"
+          className="px-5 py-2 rounded-lg bg-gray-200 hover:bg-gray-300 transition"
         >
           Cancel
         </button>
