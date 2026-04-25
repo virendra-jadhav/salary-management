@@ -52,3 +52,42 @@ Run:
 ```bash
 rails db:seed
 ```
+
+## 🧪 Testing
+
+Run all tests:
+
+```
+rspec
+```
+- Model tests
+- Service tests
+- Request specs
+
+## 🤖 AI Usage
+
+AI tools (ChatGPT) were used to:
+
+- Generate initial test cases
+- Explore architectural decisions
+- Improve seed performance
+- Scaffold API structure
+
+All generated code was reviewed, refined, and validated manually.
+
+## ▶️ Run Project
+**Backend**
+```
+rails s
+```
+
+**Frontend**
+```
+npm start
+```
+
+
+## Notes
+- Followed TDD approach
+- Used service layer for clean architecture
+- Focused on performance and scalability
