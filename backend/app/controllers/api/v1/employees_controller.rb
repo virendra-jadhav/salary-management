@@ -12,7 +12,19 @@ module Api
 
         employees = employees.order(:full_name)
 
-        render json: employees
+        page = (params[:page] || 1).to_i
+        per_page = (params[:per_page] || 10).to_i
+
+        paginated = employees.page(page).per(per_page)
+
+        render json: {
+          employees: paginated,
+          meta: {
+            current_page: paginated.current_page,
+            total_pages: paginated.total_pages,
+            total_count: paginated.total_count
+          }
+        }
       end
 
       # GET /api/v1/employees/:id
