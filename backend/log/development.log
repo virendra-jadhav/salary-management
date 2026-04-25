@@ -41,3 +41,5 @@ Migrating to CreateEmployees (20260425091615)
   [1m[35mSQL (0.2ms)[0m  [1m[35mSET search_path TO "$user", public /*application='Backend'*/[0m
   [1m[35mSQL (0.4ms)[0m  [1m[35mSET search_path TO public /*application='Backend'*/[0m
   [1m[35mSQL (0.2ms)[0m  [1m[35mSET search_path TO "$user", public /*application='Backend'*/[0m
+[dotenv] Loaded [33m.env[0m
+[dotenv] Loaded [33m.env[0m
