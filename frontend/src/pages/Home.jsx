@@ -5,15 +5,38 @@ import InsightsDashboard from "../components/InsightsDashboard";
 
 export default function Home() {
   const [refresh, setRefresh] = useState(false);
+  const [selectedEmployee, setSelectedEmployee] = useState(null);
 
   return (
     <div className="max-w-6xl mx-auto space-y-6">
-      <h1 className="text-3xl font-bold">Salary Management</h1>
+      <InsightsDashboard />
 
-        <InsightsDashboard />
-        <EmployeeForm onSuccess={() => setRefresh(!refresh)} />
-        <EmployeeTable refresh={refresh} />
-      
+      {/* Create Button */}
+      <button
+        onClick={() => setSelectedEmployee({})}
+        className="bg-green-600 text-white px-4 py-2 rounded"
+      >
+        + Create Employee
+      </button>
+
+      {/* Form */}
+      {selectedEmployee && (
+        <EmployeeForm
+          editData={selectedEmployee}
+          onSuccess={() => {
+            setSelectedEmployee(null);
+            setRefresh(!refresh);
+          }}
+          onCancel={() => setSelectedEmployee(null)}
+        />
+      )}
+
+      {/* Table */}
+      <EmployeeTable
+        refresh={refresh} 
+        onEdit={(emp) => setSelectedEmployee(emp)}
+        selectedEmployee={selectedEmployee}
+        />
     </div>
   );
 }

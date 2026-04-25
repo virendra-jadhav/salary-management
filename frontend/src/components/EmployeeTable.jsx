@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { api } from "../api/client";
 
-export default function EmployeeTable({ refresh }) {
+export default function EmployeeTable({  refresh, onEdit, selectedEmployee }) {
   const [page, setPage] = useState(1);
 
   const { data, isLoading, isFetching } = useQuery({
@@ -42,11 +42,30 @@ export default function EmployeeTable({ refresh }) {
 
         <tbody>
           {employees.map((e) => (
-            <tr key={e.id} className="border-b">
+            <tr
+                key={e.id}
+                onClick={() => onEdit(e)}
+                className={`border-b cursor-pointer transition ${
+                    selectedEmployee?.id === e.id
+                    ? "bg-blue-100 border-l-4 border-blue-500"
+                    : "hover:bg-gray-100"
+                }`}
+                >
               <td>{e.full_name}</td>
               <td>{e.job_title}</td>
               <td>{e.country}</td>
               <td>{e.salary}</td>
+              <td>
+                <button
+                    onClick={(eBtn) => {
+                    eBtn.stopPropagation(); // prevent row click double trigger
+                    onEdit(e);
+                    }}
+                    className="text-blue-600 font-medium"
+                >
+                    Edit
+                </button>
+                </td>
             </tr>
           ))}
         </tbody>

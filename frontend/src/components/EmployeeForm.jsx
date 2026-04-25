@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { api } from "../api/client";
 
-export default function EmployeeForm({ onSuccess, editData }) {
+export default function EmployeeForm({ editData, onSuccess, onCancel }) {
   const [form, setForm] = useState({
     full_name: "",
     job_title: "",
@@ -14,25 +14,40 @@ export default function EmployeeForm({ onSuccess, editData }) {
   });
 
   useEffect(() => {
-    if (editData) setForm(editData);
+    if (editData && editData.id) {
+      setForm(editData);
+    }
   }, [editData]);
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = async () => {
-    if (editData) {
-      await api.put(`/employees/${editData.id}`, { employee: form });
-    } else {
-      await api.post("/employees", { employee: form });
+    try {
+      if (editData?.id) {
+        await api.put(`/employees/${editData.id}`, { employee: form });
+      } else {
+        await api.post("/employees", { employee: form });
+      }
+      onSuccess();
+    } catch {
+      alert("Error saving employee");
     }
-    onSuccess();
+  };
+
+  const handleDelete = async () => {
+    if (!editData?.id) return;
+
+    if (window.confirm("Are you sure?")) {
+      await api.delete(`/employees/${editData.id}`);
+      onSuccess();
+    }
   };
 
   return (
-    <div className="bg-white p-4 rounded-xl shadow space-y-3">
-      <h2 className="font-semibold text-lg">
-        {editData ? "Edit Employee" : "Add Employee"}
+    <div className="bg-white p-5 rounded-xl shadow space-y-4">
+      <h2 className="text-lg font-semibold">
+        {editData?.id ? "Edit Employee" : "Create Employee"}
       </h2>
 
       <div className="grid grid-cols-2 gap-3">
@@ -72,9 +87,30 @@ export default function EmployeeForm({ onSuccess, editData }) {
         </div>
       </div>
 
-      <button className="bg-blue-600 text-white px-4 py-2 rounded" onClick={handleSubmit}>
-        {editData ? "Update" : "Create"}
-      </button>
+      <div className="flex gap-3">
+        <button
+          onClick={handleSubmit}
+          className="bg-blue-600 text-white px-4 py-2 rounded"
+        >
+          {editData?.id ? "Update" : "Create"}
+        </button>
+
+        {editData?.id && (
+          <button
+            onClick={handleDelete}
+            className="bg-red-600 text-white px-4 py-2 rounded"
+          >
+            Delete
+          </button>
+        )}
+
+        <button
+          onClick={onCancel}
+          className="bg-gray-300 px-4 py-2 rounded"
+        >
+          Cancel
+        </button>
+      </div>
     </div>
   );
 }
