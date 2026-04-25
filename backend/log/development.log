@@ -8,3 +8,36 @@
   [1m[35m (70.2ms)[0m  [1m[35mCREATE DATABASE "salary_management_development" ENCODING = 'unicode' /*application='Backend'*/[0m
   [1m[35mSQL (0.4ms)[0m  [1m[35mSET search_path TO public /*application='Backend'*/[0m
   [1m[35m (57.9ms)[0m  [1m[35mCREATE DATABASE "salary_management_test" ENCODING = 'unicode' /*application='Backend'*/[0m
+[dotenv] Loaded [33m.env[0m
+[dotenv] Loaded [33m.env[0m
+[dotenv] Loaded [33m.env[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY) /*application='Backend'*/[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mSET search_path TO public /*application='Backend'*/[0m
+  [1m[35m (83.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "salary_management_development" /*application='Backend'*/[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mSET search_path TO public /*application='Backend'*/[0m
+  [1m[35m (64.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "salary_management_test" /*application='Backend'*/[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mSET search_path TO public /*application='Backend'*/[0m
+  [1m[35m (189.4ms)[0m  [1m[35mCREATE DATABASE "salary_management_development" ENCODING = 'unicode' /*application='Backend'*/[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mSET search_path TO public /*application='Backend'*/[0m
+  [1m[35m (116.9ms)[0m  [1m[35mCREATE DATABASE "salary_management_test" ENCODING = 'unicode' /*application='Backend'*/[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY) /*application='Backend'*/[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='Backend'*/[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3048328596162421635) /*application='Backend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Backend'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (3.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2026-04-25 09:23:03.697687', '2026-04-25 09:23:03.697691') RETURNING "key" /*application='Backend'*/[0m
+Migrating to CreateEmployees (20260425091615)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN /*application='Backend'*/[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "employees" ("id" bigserial primary key, "full_name" character varying NOT NULL, "job_title" character varying NOT NULL, "country" character varying NOT NULL, "salary" decimal(10,2) NOT NULL, "department" character varying NOT NULL, "email" character varying NOT NULL, "hire_date" date NOT NULL, "employment_type" character varying DEFAULT 'Full-time' NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='Backend'*/[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_employees_on_email" ON "employees" ("email") /*application='Backend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260425091615') RETURNING "version" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT /*application='Backend'*/[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(3048328596162421635) /*application='Backend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Backend'*/[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mSET search_path TO public /*application='Backend'*/[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mSET search_path TO "$user", public /*application='Backend'*/[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mSET search_path TO public /*application='Backend'*/[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mSET search_path TO "$user", public /*application='Backend'*/[0m
