@@ -3,8 +3,8 @@ class SalaryInsightsService
     employees = Employee.where(country: country)
 
     {
-      min: employees.minimum(:salary),
-      max: employees.maximum(:salary),
+      min: employees.minimum(:salary)&.to_f,
+      max: employees.maximum(:salary)&.to_f,
       avg: employees.average(:salary)&.to_f || 0.0
     }
   end
@@ -14,8 +14,9 @@ class SalaryInsightsService
             .average(:salary)&.to_f || 0.0
   end
   def self.by_department(country)
-    Employee.where(country: country)
+       Employee.where(country: country)
             .group(:department)
             .average(:salary)
+            .transform_values { |v| v.to_f }
   end
 end
