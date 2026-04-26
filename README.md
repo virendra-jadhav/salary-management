@@ -37,6 +37,8 @@ This system is designed for an **HR Manager** to:
 - View paginated employee list
 - Edit employee via unified form
 - Highlight selected employee
+<img width="1226" height="590" alt="employeeForm" src="https://github.com/user-attachments/assets/afa3c75b-d1e4-404b-85ea-d1e283780e51" />
+
 
 ### 🔍 Search & Filters
 - Search employees by **name**
@@ -45,10 +47,14 @@ This system is designed for an **HR Manager** to:
   - Job Title
 - Debounced search for better UX
 
+<img width="1228" height="581" alt="EmployeeList" src="https://github.com/user-attachments/assets/308dede0-9a94-4297-85f0-982e7d6b3dac" />
+
 ### 📊 Salary Insights
 - Min / Max / Avg salary by country
 - Avg salary by job title
 - Clean UI dashboard for insights
+<img width="1191" height="422" alt="Insights" src="https://github.com/user-attachments/assets/4faa6781-2492-434b-9772-2d6048be5946" />
+
 
 ### ⚡ Performance Optimizations
 - Pagination (10 per page)
