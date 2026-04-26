@@ -2,25 +2,38 @@ import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { api } from "../api/client";
 import toast from "react-hot-toast";
+import { useDebounce } from "use-debounce";
 
 export default function EmployeeTable({ refresh, onEdit, selectedEmployee }) {
   const [page, setPage] = useState(1);
 
-  // 🔍 Filters
+  // 🔍 Filters (raw input)
   const [name, setName] = useState("");
   const [country, setCountry] = useState("");
   const [jobTitle, setJobTitle] = useState("");
 
+  // ✅ Debounced values (IMPORTANT FIX)
+  const [debouncedName] = useDebounce(name, 500);
+  const [debouncedCountry] = useDebounce(country, 500);
+  const [debouncedJobTitle] = useDebounce(jobTitle, 500);
+
   const { data, isLoading, isError, isFetching } = useQuery({
-    queryKey: ["employees", page, refresh, name, country, jobTitle],
+    queryKey: [
+      "employees",
+      page,
+      refresh,
+      debouncedName,
+      debouncedCountry,
+      debouncedJobTitle,
+    ],
     queryFn: async () => {
       const res = await api.get("/employees", {
         params: {
           page,
           per_page: 10,
-          name,
-          country,
-          job_title: jobTitle,
+          name: debouncedName,
+          country: debouncedCountry,
+          job_title: debouncedJobTitle,
         },
       });
       return res.data;
