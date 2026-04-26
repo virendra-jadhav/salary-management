@@ -7,6 +7,12 @@ module Api
       def index
         employees = Employee.all
 
+         # 🔍 Search by full name (case-insensitive)
+        if params[:name].present?
+          employees = employees.where("LOWER(full_name) LIKE ?", "%#{params[:name].downcase}%")
+        end
+
+        # 🎯 Filters
         employees = employees.where(country: params[:country]) if params[:country].present?
         employees = employees.where(job_title: params[:job_title]) if params[:job_title].present?
 
