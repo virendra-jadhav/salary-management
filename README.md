@@ -187,6 +187,17 @@ AI tools (ChatGPT) were used to:
 All outputs were reviewed, refined, and validated manually.
 
 ---
+## 🧭 How to Use
+
+1. Create or edit employees from the form
+2. Use search and filters to find employees
+3. Navigate through pages using pagination
+4. Use Salary Insights:
+   - Enter country → view min, max, avg salary
+   - Enter job title → view average salary for that role
+
+
+---
 
 ## 📌 Development Approach
 - Followed **TDD principles**
