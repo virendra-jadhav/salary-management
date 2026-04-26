@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { api } from "../api/client";
+import toast from "react-hot-toast";
 
 const initialForm = {
   full_name: "",
@@ -50,21 +51,20 @@ const handleSubmit = async () => {
 
     if (editData?.id) {
       res = await api.put(`/employees/${editData.id}`, { employee: form });
+      toast.success("Employee updated successfully");
     } else {
       res = await api.post("/employees", { employee: form });
+      toast.success("Employee created successfully");
     }
 
     const savedEmployee = res.data;
-
-    // 🔥 pass data back to parent
     onSuccess(savedEmployee);
 
-    // Reset form ONLY for create
     if (!editData?.id) {
       setForm(initialForm);
     }
   } catch {
-    alert("Error saving employee");
+    toast.error("Something went wrong");
   }
 };
 
@@ -80,10 +80,13 @@ const handleDelete = async () => {
   if (!editData?.id) return;
 
   if (window.confirm("Are you sure?")) {
-    await api.delete(`/employees/${editData.id}`);
-
-    // 🔥 tell parent to refresh + clear selection
-    onSuccess(null);
+    try {
+      await api.delete(`/employees/${editData.id}`);
+      toast.success("Employee deleted");
+      onSuccess(null);
+    } catch {
+      toast.error("Delete failed");
+    }
   }
 };
 

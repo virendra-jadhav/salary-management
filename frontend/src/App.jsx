@@ -1,11 +1,13 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Home from "./pages/Home";
+import { Toaster } from "react-hot-toast";
 
 const queryClient = new QueryClient();
 
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
+      <Toaster position="top-right" />
       <div className="min-h-screen bg-gray-100 p-6">
         <Home />
       </div>
@@ -14,7 +16,6 @@ function App() {
 }
 
 export default App;
-
 
 
 // import logo from './logo.svg';

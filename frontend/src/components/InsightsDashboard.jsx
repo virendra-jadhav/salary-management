@@ -1,23 +1,40 @@
 import { useState } from "react";
 import { api } from "../api/client";
+import toast from "react-hot-toast";
+
+
 
 export default function InsightsDashboard() {
+
   const [country, setCountry] = useState("");
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const fetchInsights = async () => {
-    setLoading(true);
-    try {
-      const res = await api.get("/insights/country", {
-        params: { country },
-      });
-      setData(res.data);
-    } finally {
-      setLoading(false);
-    }
-  };
-
+  // const fetchInsights = async () => {
+  //   setLoading(true);
+  //   try {
+  //     const res = await api.get("/insights/country", {
+  //       params: { country },
+  //     });
+  //     setData(res.data);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+const fetchInsights = async () => {
+  setLoading(true);
+  try {
+    const res = await api.get("/insights/country", {
+      params: { country },
+    });
+    setData(res.data);
+    toast.success("Insights loaded");
+  } catch {
+    toast.error("Failed to fetch insights");
+  } finally {
+    setLoading(false);
+  }
+};
   return (
     <div className="bg-gradient-to-r from-indigo-600 to-blue-500 text-white p-6 rounded-2xl shadow-lg">
       <h2 className="text-xl font-bold mb-4">Salary Insights</h2>
