@@ -88,6 +88,7 @@ rails db:create
 rails db:migrate
 rails db:seed
 ```
+---
 
 ## 🧪 Testing
 
@@ -101,6 +102,7 @@ rspec
 - Request specs
 - Service tests
 
+---
 
 ## ⚙️ Setup Instructions
 **🔧 Backend Setup**
@@ -145,6 +147,9 @@ npm start
 Runs on:
 ```http://localhost:3001```
 
+---
+
+
 ## 🔗 API Endpoints
 
 **Employees**
@@ -167,6 +172,8 @@ Runs on:
 /api/v1/insights/job_title
 ```
 
+---
+
 ## 🤖 AI Usage
 
 AI tools (ChatGPT) were used to:
@@ -179,6 +186,8 @@ AI tools (ChatGPT) were used to:
 
 All outputs were reviewed, refined, and validated manually.
 
+---
+
 ## 📌 Development Approach
 - Followed **TDD principles**
 - Built incrementally with meaningful commits
@@ -187,19 +196,23 @@ All outputs were reviewed, refined, and validated manually.
   - Maintainability
   -  Performance
   - User experience
-- 
+
+---
+
 ## 📈 Scalability Considerations
 - Supports 10,000+ employees
 - Efficient pagination
 - Indexed queries
 - Optimized seed script
 
+---
 
 ## 📝 Notes
 - Backend and frontend run on separate ports
 - CORS enabled for communication
 - Designed with extensibility in mind
 
+---
 
 ## 👨‍💻 Author
 Virendra Jadhav
