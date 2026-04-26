@@ -57,15 +57,24 @@ const fetchInsights = async () => {
         <div className="grid grid-cols-3 gap-4">
           <div className="bg-white text-black p-4 rounded-xl text-center">
             <p className="text-sm text-gray-500">Min Salary</p>
-            <p className="text-xl font-bold">₹ {data.min}</p>
+            <p className="text-xl font-bold">
+              {/* ₹ {data.min} */}
+              ₹ {Number(data.min).toFixed(2)}
+              </p>
           </div>
           <div className="bg-white text-black p-4 rounded-xl text-center">
             <p className="text-sm text-gray-500">Max Salary</p>
-            <p className="text-xl font-bold">₹ {data.max}</p>
+            <p className="text-xl font-bold">
+              {/* ₹ {data.max} */}
+              ₹ {Number(data.max).toFixed(2)}
+            </p>
           </div>
           <div className="bg-white text-black p-4 rounded-xl text-center">
             <p className="text-sm text-gray-500">Avg Salary</p>
-            <p className="text-xl font-bold">₹ {data.avg}</p>
+            <p className="text-xl font-bold">
+              {/* ₹ {data.avg} */}
+              ₹ {Number(data.avg).toFixed(2)}
+              </p>
           </div>
         </div>
       )}
