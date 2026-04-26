@@ -2062,3 +2062,33 @@ Processing by Api::V1::InsightsController#country as HTML
 Completed 200 OK in 32ms (Views: 0.4ms | ActiveRecord: 15.8ms (3 queries, 0 cached) | GC: 0.0ms)
 
 
+Started GET "/api/v1/employees?page=1&per_page=10&name=&country=&job_title=" for ::1 at 2026-04-26 13:28:24 +0530
+Processing by Api::V1::EmployeesController#index as HTML
+  Parameters: {"page" => "1", "per_page" => "10", "name" => "", "country" => "", "job_title" => ""}
+  [1m[36mEmployee Count (288.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees" /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:30:in 'Api::V1::EmployeesController#index'
+  [1m[36mEmployee Load (8.4ms)[0m  [1m[34mSELECT "employees".* FROM "employees" ORDER BY "employees"."full_name" ASC LIMIT 10 OFFSET 0 /*action='index',application='Backend',controller='employees'*/[0m
+  ↳ app/controllers/api/v1/employees_controller.rb:26:in 'Api::V1::EmployeesController#index'
+Completed 200 OK in 578ms (Views: 80.0ms | ActiveRecord: 318.0ms (2 queries, 0 cached) | GC: 58.0ms)
+
+
+Started GET "/api/v1/insights/country?country=India" for ::1 at 2026-04-26 13:28:30 +0530
+Processing by Api::V1::InsightsController#country as HTML
+  Parameters: {"country" => "India"}
+  [1m[36mEmployee Minimum (13.9ms)[0m  [1m[34mSELECT MIN("employees"."salary") FROM "employees" WHERE "employees"."country" = 'India' /*action='country',application='Backend',controller='insights'*/[0m
+  ↳ app/services/salary_insights_service.rb:6:in 'SalaryInsightsService.by_country'
+  [1m[36mEmployee Maximum (6.2ms)[0m  [1m[34mSELECT MAX("employees"."salary") FROM "employees" WHERE "employees"."country" = 'India' /*action='country',application='Backend',controller='insights'*/[0m
+  ↳ app/services/salary_insights_service.rb:7:in 'SalaryInsightsService.by_country'
+  [1m[36mEmployee Average (6.8ms)[0m  [1m[34mSELECT AVG("employees"."salary") FROM "employees" WHERE "employees"."country" = 'India' /*action='country',application='Backend',controller='insights'*/[0m
+  ↳ app/services/salary_insights_service.rb:8:in 'SalaryInsightsService.by_country'
+Completed 200 OK in 48ms (Views: 0.3ms | ActiveRecord: 26.8ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/insights/job_title?country=India&job_title=Engineer" for ::1 at 2026-04-26 13:28:39 +0530
+Processing by Api::V1::InsightsController#job_title as HTML
+  Parameters: {"country" => "India", "job_title" => "Engineer"}
+  [1m[36mEmployee Average (6.0ms)[0m  [1m[34mSELECT AVG("employees"."salary") FROM "employees" WHERE "employees"."country" = 'India' AND "employees"."job_title" = 'Engineer' /*action='job_title',application='Backend',controller='insights'*/[0m
+  ↳ app/services/salary_insights_service.rb:14:in 'SalaryInsightsService.by_job_title'
+Completed 200 OK in 42ms (Views: 0.3ms | ActiveRecord: 5.9ms (1 query, 0 cached) | GC: 14.3ms)
+
+
